@@ -34,7 +34,7 @@ export default class LandingPage extends Component {
           key={article.url}
           title={article.title}
           url={article.url}
-          image={article.UrlToImage}
+          image={article.urlToImage}
         />
       );
     });

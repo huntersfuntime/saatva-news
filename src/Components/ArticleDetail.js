@@ -8,7 +8,7 @@ const ArticleDetail = props => {
       <h2 className="title">{title}</h2>
       <img src={urlToImage} alt={`Image of ${title}`} />
       <p>Email, Facebook, Twitter, StackOverflow icon </p>
-      <p>{long_description} </p>
+      <p dangerouslySetInnerHTML={{ __html: long_description }} />
     </div>
   );
 };

@@ -2,6 +2,14 @@
   display: grid;
   grid-template-columns: 18rem 1fr;
   grid-template-rows: 10vh, 90vh;
-  background-color: lightcyan;
+  background-color: #f6f5f3;
   grid-gap: 1.5rem;
+}
+
+@media (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh, 70vh 30vh;
+    grid-gap: 0;
+  }
 }

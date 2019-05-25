@@ -1,13 +1,36 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const Article = props => {
-  return (
-    <div className="article">
-      <p>Title: {props.title}</p>
-    </div>
-  );
-};
+export default class Article extends Component {
+  state = {
+    hover: false
+  };
+
+  toggleHover = () => {
+    this.setState(prevState => {
+      return { hover: !prevState.hover };
+    });
+  };
+
+  render() {
+    let articleStyle = {
+      backgroundImage: "url(" + `${this.props.image}` + ")",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
+    };
+
+    return (
+      <div
+        onMouseOver={this.toggleHover}
+        onMouseLeave={this.toggleHover}
+        className="article"
+        style={this.state.hover ? articleStyle : null}
+      >
+        <p>Title: {this.props.title}</p>
+      </div>
+    );
+  }
+}
 
 Article.propTypes = {
   title: PropTypes.string,
@@ -20,5 +43,3 @@ Article.defaultProps = {
   url: "No URL available",
   UrlToImage: "No image available"
 };
-
-export default Article;

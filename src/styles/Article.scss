@@ -1,13 +1,21 @@
 .article-records {
-  background-color: white;
   margin-left: 1.5rem;
 }
 .article {
   height: 10vh;
-  border: 1px solid black;
+  border: 1px solid $grey;
   font-size: 14px;
   text-decoration: underline;
   display: flex;
   align-items: center;
   padding: 1rem;
+  background-color: white;
+  border-radius: 2px;
+}
+
+@media (max-width: 750px) {
+  .article-records {
+    grid-row: 3/3;
+    margin-left: 0;
+  }
 }
