@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Header from "../Components/Header";
+import Article from "../Components/Article";
 
 export default class LandingPage extends Component {
   state = {
@@ -16,18 +17,27 @@ export default class LandingPage extends Component {
       url: proxyUrl + url
     })
       .then(response => {
-        console.log(response.data);
+        console.log(response.data.articles);
         this.setState({
-          articles: response.data
+          articles: response.data.articles
         });
       })
       .catch(error => console.log("error", error));
   }
   render() {
+    const articleRecords = this.state.articles.map(article => {
+      return (
+        <Article
+          title={article.title}
+          url={article.url}
+          image={article.UrlToImage}
+        />
+      );
+    });
     return (
       <div>
         <Header />
-        Satva
+        {articleRecords}
       </div>
     );
   }
