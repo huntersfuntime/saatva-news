@@ -1,7 +1,9 @@
 header {
   border-bottom: 2px solid black;
-  width: 100vw;
   padding: 1rem;
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-color: white;
 }
 
 .logo {

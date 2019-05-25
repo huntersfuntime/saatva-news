@@ -1,8 +1,13 @@
+.article-records {
+  background-color: white;
+  margin-left: 1.5rem;
+}
 .article {
-  background-color: lightblue;
-  height: 12vh;
-  max-width: 16rem;
-  padding: 1rem;
-  margin-left: 3rem;
+  height: 10vh;
   border: 1px solid black;
+  font-size: 14px;
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
 }
