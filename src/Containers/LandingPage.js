@@ -35,7 +35,7 @@ export default class LandingPage extends Component {
       );
     });
     return (
-      <div>
+      <div className="grid">
         <Header />
         {articleRecords}
       </div>

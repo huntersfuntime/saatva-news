@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 
 const Article = props => {
   return (
-    <div>
+    <div className="article">
       <p>Title: {props.title}</p>
-      <p>Url:{props.url} </p>
-      <p>UrlToImage: {props.UrlToImage}</p>
     </div>
   );
 };
