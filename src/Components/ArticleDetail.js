@@ -1,24 +1,27 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { Component } from "react";
+
+import ArticleContext from "./ArticleContext";
 import SocialIcons from "./SocialIcons";
 
-const ArticleDetail = props => {
-  const { title, urlToImage, long_description } = props.article;
-  return (
-    <div className="article-detail">
-      <h2 className="title">{title}</h2>
-      <img src={urlToImage} alt={`Image of ${title}`} />
-      <SocialIcons />
-      {/* Generally wouldn't use dangerouslySetInnerHTML but since this is a code challenge and its not coming from a user.  */}
-      <p dangerouslySetInnerHTML={{ __html: long_description }} />
-    </div>
-  );
-};
-
-ArticleDetail.defaultProps = {
-  title: "No title found",
-  urlToImage: "No Image found",
-  long_description: "No description found"
-};
-
-export default ArticleDetail;
+export default class ArticleDetail extends Component {
+  render() {
+    return (
+      <ArticleContext.Consumer>
+        {context => (
+          <div className="article-detail">
+            <h2 className="title">{context.article.title}</h2>
+            <img src={context.article.urlToImage} alt="" />
+            <SocialIcons />
+            <h3>Author: {context.article.author}</h3>
+            {/* Generally wouldn't use dangerouslySetInnerHTML but since this is a code challenge and its not coming from a user.  */}
+            <p
+              dangerouslySetInnerHTML={{
+                __html: context.article.long_description
+              }}
+            />
+          </div>
+        )}
+      </ArticleContext.Consumer>
+    );
+  }
+}

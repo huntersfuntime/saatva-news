@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default class Article extends Component {
   state = {
@@ -26,7 +27,9 @@ export default class Article extends Component {
         className="article"
         style={this.state.hover ? articleStyle : null}
       >
-        <p>Title: {this.props.title}</p>
+        <Link to={`/${this.props.url}`} onClick={this.props.onClick}>
+          <p>Title: {this.props.title}</p>
+        </Link>
       </div>
     );
   }
