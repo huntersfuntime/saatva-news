@@ -14,11 +14,10 @@ class ArticleProvider extends Component {
   componentDidMount() {
     const url = "https://s3-us-west-2.amazonaws.com/saatva-hiring/news.json";
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    axios({
-      method: "get",
-      url: `${proxyUrl}${url}`
-    })
+    return axios
+      .get(`${proxyUrl}${url}`)
       .then(response => {
+        console.log(response.data);
         this.setState({
           articles: response.data.articles,
           selectedArticle: response.data.articles[0]
@@ -48,7 +47,7 @@ class ArticleProvider extends Component {
             background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${
               article.urlToImage
             }")`,
-            backgroundPosition: "center",
+            backgroundPosition: "center center",
             color: "white"
           }}
         />
