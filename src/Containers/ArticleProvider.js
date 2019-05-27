@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ArticleContext from "../Components/ArticleContext";
+import Sidebar from "../Components/Sidebar";
+import Header from "../Components/Header";
+import ArticleDetail from "../Components/ArticleDetail";
 
 class ArticleProvider extends Component {
   state = {
-    name: "Scott",
-    email: "scott@gmail.com",
     articles: [],
     selectedArticle: {}
   };
@@ -33,16 +34,43 @@ class ArticleProvider extends Component {
   };
 
   render() {
+    const articleList = this.state.articles.map(article => {
+      return (
+        <Sidebar
+          key={article.index}
+          articleList={{ article }}
+          onClick={this.articleClick}
+          hoverStyle={{
+            backgroundImage: "url(" + `${article.urlToImage}` + ")",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            transition: "all 0.4s",
+            color: "white"
+          }}
+          activeStyle={{
+            backgroundImage: "url(" + `${article.urlToImage}` + ")",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            filter: "brightness(50%)",
+            color: "white"
+          }}
+        />
+      );
+    });
     return (
-      <ArticleContext.Provider
-        value={{
-          articles: this.state.articles,
-          article: this.state.selectedArticle,
-          articleClick: this.articleClick
-        }}
-      >
-        {this.props.children}
-      </ArticleContext.Provider>
+      <div className="grid">
+        <ArticleContext.Provider
+          value={{
+            article: this.state.selectedArticle,
+            articleClick: this.articleClick
+          }}
+        >
+          <Header />
+          <div className="article-records">{articleList}</div>
+          <ArticleDetail />
+          {this.props.children}
+        </ArticleContext.Provider>
+      </div>
     );
   }
 }

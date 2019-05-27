@@ -1,10 +1,14 @@
 .article-records {
   margin-left: 1.5rem;
+  grid-column: 1/2;
 }
 .article {
+  overflow: hidden;
   height: 10vh;
+  cursor: pointer;
   border: 1px solid $grey;
   color: black;
+  text-decoration: underline;
   font-size: 14px;
   display: flex;
   align-items: center;
