@@ -20,6 +20,9 @@ export default class Sidebar extends Component {
           <div
             onMouseOver={this.toggleHover}
             onMouseLeave={this.toggleHover}
+            key={this.props.key}
+            className="article"
+            onClick={() => context.articleClick(this.props.articleList.article)}
             style={
               this.state.hover
                 ? this.props.hoverStyle
@@ -27,11 +30,8 @@ export default class Sidebar extends Component {
                 ? this.props.activeStyle
                 : null
             }
-            key={this.props.key}
-            className="article"
-            onClick={() => context.articleClick(this.props.articleList.article)}
           >
-            <div>{this.props.articleList.article.title}</div>
+            {this.props.articleList.article.title}
           </div>
         )}
       </ArticleContext.Consumer>

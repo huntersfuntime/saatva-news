@@ -16,7 +16,7 @@ class ArticleProvider extends Component {
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     axios({
       method: "get",
-      url: proxyUrl + url
+      url: `${proxyUrl}${url}`
     })
       .then(response => {
         this.setState({
@@ -41,17 +41,14 @@ class ArticleProvider extends Component {
           articleList={{ article }}
           onClick={this.articleClick}
           hoverStyle={{
-            backgroundImage: "url(" + `${article.urlToImage}` + ")",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            transition: "all 0.4s",
-            color: "white"
+            backgroundImage: `url("${article.urlToImage}")`,
+            opacity: "1"
           }}
           activeStyle={{
-            backgroundImage: "url(" + `${article.urlToImage}` + ")",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            filter: "brightness(50%)",
+            background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${
+              article.urlToImage
+            }")`,
+            backgroundPosition: "center",
             color: "white"
           }}
         />
