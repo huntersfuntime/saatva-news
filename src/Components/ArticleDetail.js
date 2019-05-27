@@ -1,5 +1,6 @@
 import React from "react";
-import Article from "./Article";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SocialIcons from "./SocialIcons";
 
 const ArticleDetail = props => {
   const { title, urlToImage, long_description } = props.article;
@@ -7,7 +8,8 @@ const ArticleDetail = props => {
     <div className="article-detail">
       <h2 className="title">{title}</h2>
       <img src={urlToImage} alt={`Image of ${title}`} />
-      <p>Email, Facebook, Twitter, StackOverflow icon </p>
+      <SocialIcons />
+      {/* Generally wouldn't use dangerouslySetInnerHTML but since this is a code challenge and its not coming from a user.  */}
       <p dangerouslySetInnerHTML={{ __html: long_description }} />
     </div>
   );

@@ -1,0 +1,27 @@
+.social-icons {
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-right: 6px;
+
+    :hover {
+      transition: all 0.3s ease;
+
+      -ms-transform: rotateZ(-30deg);
+      transform: rotateZ(-30deg);
+    }
+  }
+
+  .twitter-icon {
+    color: $twitter-color;
+  }
+
+  .facebook-icon {
+    color: $facebook-color;
+  }
+
+  .stack-overflow-icon {
+    color: $stack-overflow-color;
+  }
+}
