@@ -4,11 +4,15 @@
 
   > * {
     margin-right: 6px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    line-height: 80px;
+    font-size: 20px;
+    transition: 0.3s linear;
 
     :hover {
-      transition: all 0.3s ease;
-
-      border: black;
+      animation: whop 0.8s 1;
+      transform: scale(1.5);
     }
   }
 
@@ -22,5 +26,21 @@
 
   .stack-overflow-icon {
     color: $stack-overflow-color;
+  }
+}
+
+@keyframes whop {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(45deg) scale(2);
+  }
+
+  75% {
+    transform: rotate(-45deg) scale(1.6);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.5);
   }
 }

@@ -40,8 +40,7 @@ class ArticleProvider extends Component {
           articleList={{ article }}
           onClick={this.articleClick}
           hoverStyle={{
-            backgroundImage: `url("${article.urlToImage}")`,
-            opacity: "1"
+            backgroundImage: `url("${article.urlToImage}")`
           }}
           activeStyle={{
             background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${
